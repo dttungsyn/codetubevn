@@ -1,0 +1,60 @@
+<!-- <section data-ng-controller="ArticlesController" data-ng-init="findOne()">
+  <span>{{article.created | date:'medium'}}</span> /
+  <span>{{article.user.name}}</span>
+  <h2>{{article.title}}</h2>
+  <div data-ng-if="hasAuthorization(article)">
+    <a class="btn" href="/#!/articles/{{article._id}}/edit">
+      <i class="glyphicon glyphicon-edit"></i>
+    </a>
+    <a class="btn" data-ng-click="remove(article);">
+      <i class="glyphicon glyphicon-trash"></i>
+    </a>
+  </div>
+  <div>{{article.content}}</div>
+</section>
+ -->
+ <section data-ng-controller="ArticlesController" data-ng-init="findOne()">
+  <div class="row post-container">
+    <h1 class="post-header"><a href="#">{{article.title}}</a></h1>
+  <div data-ng-if="hasAuthorization(article)">
+      <a class="btn" href="/#!/articles/{{article._id}}/edit">
+        <i class="glyphicon glyphicon-edit"></i>
+      </a>
+      <a class="btn" data-ng-click="remove(article);">
+        <i class="glyphicon glyphicon-trash"></i>
+      </a>
+  </div>
+  
+    <div class="col-md-9">
+    <div class="post-content" ui-bind-html="htmlContent"></div>
+    </div>
+    
+    <div class="col-md-3" style="position: relative;">
+      <div class="toc"></div>
+    </div>
+  </div>
+  
+  <div class="">
+      <span class="muted">{{article.created | date:'medium'}}</span> &nbsp; - &nbsp;
+      <a href="/users/54a9e72257bc5b5411b48386">
+        {{article.user.name}}
+      </a>&nbsp; - &nbsp;
+      <span> Tags: </span>
+      <span data-ng-repeat="tag in article.tags">
+    <i class="muted fa fa-tag"></i>&nbsp;<a> {{ tag }} </a>&nbsp;
+    </span>
+  </div>
+
+  <div class="media">
+    <div class="pull-left">
+      <a href="#">
+        <img class="media-object" data-src="holder.js/64x64" alt="64x64" src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9InllcyI/PjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB3aWR0aD0iNjQiIGhlaWdodD0iNjQiIHZpZXdCb3g9IjAgMCA2NCA2NCIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+PGRlZnMvPjxyZWN0IHdpZHRoPSI2NCIgaGVpZ2h0PSI2NCIgZmlsbD0iI0VFRUVFRSIvPjxnPjx0ZXh0IHg9IjE0LjUiIHk9IjMyIiBzdHlsZT0iZmlsbDojQUFBQUFBO2ZvbnQtd2VpZ2h0OmJvbGQ7Zm9udC1mYW1pbHk6QXJpYWwsIEhlbHZldGljYSwgT3BlbiBTYW5zLCBzYW5zLXNlcmlmLCBtb25vc3BhY2U7Zm9udC1zaXplOjEwcHQ7ZG9taW5hbnQtYmFzZWxpbmU6Y2VudHJhbCI+NjR4NjQ8L3RleHQ+PC9nPjwvc3ZnPg==" data-holder-rendered="true" style="width: 64px; height: 64px;">
+      </a>
+    </div>
+    <div class="media-body">
+      <h4 class="media-heading" id="top-aligned-media">Top aligned media<a class="anchorjs-link" href="#top-aligned-media"><span class="anchorjs-icon"></span></a></h4>
+      <p>Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.</p>
+      <p>Donec sed odio dui. Nullam quis risus eget urna mollis ornare vel eu leo. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.</p>
+    </div>
+  </div>
+</section>

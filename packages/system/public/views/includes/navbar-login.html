@@ -1,0 +1,102 @@
+<style>
+.modal-backdrop{
+	z-index: 999;
+}
+
+.login-group li a.btn{
+	color: white;
+	margin: 2px;
+	height: 35px;
+	font-size: 16px;
+	padding-top: 6px;
+}
+
+.login-group a.btn-signup{
+	color: black;
+	margin: 5px;
+}
+.login-group a.btn-signup:hover{
+
+}
+
+.login-group ul.dropdown-menu{
+	width: 200px;
+	background: white;
+}
+
+.login-group .dropdown-menu .divider{
+	background-color: #A5B3C5;
+}
+
+/*github button*/
+.login-group a.btn-github{
+	background-color: #CCD1D9;
+	color: #333333;
+}
+.login-group a.btn-github:hover{
+	background-color: #AAB2BD;
+}
+
+/*linkedin button*/
+.login-group a.btn-linkedin{
+	background-color: #5D9CEC;
+}
+.login-group a.btn-linkedin:hover{
+	background-color: #4A89DC;
+}
+
+#user_login{
+	width: 50px;
+	border-radius: 10px;
+}
+#login-form{
+	position: relative;
+}
+#login-form .fa-user{
+	position: absolute;
+	left: 25px;
+	top: 7px;
+	font-size: 20px;
+}
+</style>
+
+
+
+<form class="navbar-form navbar-right" id="login-form" role="form" action="" method="post">
+	
+	<i class="fa fa-user"></i>
+	<div class="form-group">
+	  <input type="text" name="log" id="user_login" placeholder="" class="form-control">
+	</div>
+	<!-- <div class="form-group">
+	  <input type="password" name="pwd" id="user_pass" placeholder="Password" class="form-control">
+	</div> -->
+	<input type="hidden" name="redirect_to" value="">
+	<div class="btn-group login-group">
+	  
+	  <a type="button" href="#!/auth/login" class="btn btn-success">Sign In</a>
+	  <a type="button" class="btn btn-success dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><span class="caret"></span></a>
+	  <ul class="dropdown-menu" role="menu">
+	  	<li><a href="/auth/github" class="btn btn-github">
+	    	<i class="fa fa-github"></i>&nbsp; Github
+	    </a></li>
+	    <li><a href="/auth/linkedin" class="btn btn-linkedin">
+	    	<i class="fa fa-linkedin"></i>&nbsp; LinkedIn
+	    </a></li>
+	    <li><a href="/auth/facebook" class="btn btn-primary">
+	    	<i class="fa fa-facebook"></i>&nbsp; Facebook
+	    </a></li>
+	    <li><a href="/auth/twitter" class="btn btn-info">
+	    	<i class="fa fa-twitter"></i>&nbsp; Twitter
+	    </a></li>
+	    <li><a href="/auth/google" class="btn btn-danger">
+	    	<i class="fa fa-google-plus"></i>&nbsp; Google+
+	    </a></li>
+	    <li class="divider"></li>
+	    <li><a href="#" class="btn-signup" data-toggle="modal" data-target="#signup-modal">
+	    	<i class="fa fa-arrow-up"></i>&nbsp; Sign Up
+	    </a></li>
+	  </ul>
+	</div>
+	
+</form>

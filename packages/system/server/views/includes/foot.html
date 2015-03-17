@@ -1,0 +1,54 @@
+<div class="footer">
+  <div class="container">
+    <div class="clearfix">
+      <div class="footer-logo"><a href="#"><img src="img/footer-logo.png">Bootflat</a></div>
+      <dl class="footer-nav">
+        <dt class="nav-title">PORTFOLIO</dt>
+        <dd class="nav-item"><a href="#">Web Design</a></dd>
+        <dd class="nav-item"><a href="#">Branding &amp; Identity</a></dd>
+        <dd class="nav-item"><a href="#">Mobile Design</a></dd>
+        <dd class="nav-item"><a href="#">Print</a></dd>
+        <dd class="nav-item"><a href="#">User Interface</a></dd>
+      </dl>
+      <dl class="footer-nav">
+        <dt class="nav-title">ABOUT</dt>
+        <dd class="nav-item"><a href="#">The Company</a></dd>
+        <dd class="nav-item"><a href="#">History</a></dd>
+        <dd class="nav-item"><a href="#">Vision</a></dd>
+      </dl>
+      <dl class="footer-nav">
+        <dt class="nav-title">GALLERY</dt>
+        <dd class="nav-item"><a href="#">Flickr</a></dd>
+        <dd class="nav-item"><a href="#">Picasa</a></dd>
+        <dd class="nav-item"><a href="#">iStockPhoto</a></dd>
+        <dd class="nav-item"><a href="#">PhotoDune</a></dd>
+      </dl>
+      <dl class="footer-nav">
+        <dt class="nav-title">CONTACT</dt>
+        <dd class="nav-item"><a href="#">Basic Info</a></dd>
+        <dd class="nav-item"><a href="#">Map</a></dd>
+        <dd class="nav-item"><a href="#">Conctact Form</a></dd>
+      </dl>
+    </div>
+    
+    <div class="footer-copyright text-center">© 2014 codetube.vn. All rights reserved.</div>
+    
+  </div>
+</div>
+
+{% for file in aggregatedassets.footer.js %}
+  <script type="text/javascript" src="{{file}}"></script>
+{% endfor %}
+
+<script type="text/javascript" src="/system/assets/lib/highlight/highlight.pack.js"></script>
+<script type="text/javascript" src="/system/assets/lib/marked/marked.js"></script>
+<script type="text/javascript" src="/system/assets/lib/marked/ui-codemirror.js"></script>
+<script type="text/javascript" src="/system/assets/lib/lodash/lodash.js"></script>
+
+{% if (process.env.NODE_ENV == 'development') %}
+  <!-- Livereload script rendered -->
+  <!-- Disabling livereload due to - https://github.com/linnovate/mean/issues/929
+       Will probably return in 0.4.2 and new aggregation
+  <script type="text/javascript" src="{{'//' + req.hostname + ':35729/livereload.js'}}"></script>
+  -->
+{% endif %}

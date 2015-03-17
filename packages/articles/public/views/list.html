@@ -1,0 +1,68 @@
+<!-- <section data-ng-controller="ArticlesController" data-ng-init="find()">
+  <ul class="articles unstyled">
+    <li data-ng-repeat="article in articles">
+      <span>{{article.created | date:'medium'}}</span> /
+      <span>{{article.user.name}}</span>
+      <h2>
+        <a data-ng-href="#!/articles/{{article._id}}">{{article.title}}</a>
+        <span data-ng-if="hasAuthorization(article)">
+          <a class="btn" href="/#!/articles/{{article._id}}/edit">
+            <i class="glyphicon glyphicon-edit"></i>
+          </a>
+          <a class="btn" data-ng-click="remove(article);">
+            <i class="glyphicon glyphicon-trash"></i>
+          </a>
+        </span>
+      </h2>
+      <div>{{article.content}}</div>
+    </li>
+  </ul>
+  <h1 data-ng-hide="!articles || articles.length">No articles yet. <br> Why don't you <a href="/#!/articles/create">Create One</a>?</h1>
+</section> -->
+<section class="row" data-ng-controller="ArticlesController" data-ng-init="find()">
+  <div class="col-md-9">    
+  
+    <ul class="articles unstyled">
+      <div data-ng-repeat="article in articles">
+        
+        <!--header-->
+        <hr>
+        <div class="row post-header">
+      <div class="col-md-12">
+        <h1 class="title-lst"><a href="#!/articles/{{article._id}}">{{article.title}}</a></h1>
+      </div>
+      </div>
+        
+        <!-- brief content -->
+        <div class="post-content">
+          
+          <div data-ng-if="hasAuthorization(article)" class="btn-group btn-group-sm">
+            <a href="/#!/articles/{{article._id}}/edit" class="btn btn-default"><i class="glyphicon glyphicon-pencil"></i></a>
+            <a class="btn btn-default"><i class="glyphicon glyphicon-home"></i></a>
+          </div>
+      
+          <!-- render html content using own directive -->
+          <p ui-bind-html="article.htmlContent">
+          </p>
+          
+          <a href="#!/articles/{{article._id}}" class="btn btn-primary btn-lg" role="button">Learn more</a>
+        </div>
+        
+        <!-- footer -->
+        <div class="">
+            <span class="muted">{{article.created | date:'medium'}}</span> &nbsp; - &nbsp;
+            <a href="/users/54a9e72257bc5b5411b48386">
+                {{article.user.name}}
+              </a>&nbsp; - &nbsp;
+              <span> Tags: </span>
+              <span data-ng-repeat="tag in article.tags">
+          <i class="muted fa fa-tag"></i>&nbsp;<a> {{ tag }} </a>&nbsp;
+          </span>
+          </div>
+      </div>
+    </ul>
+    
+    <h1 data-ng-hide="!articles || articles.length">No articles yet. <br> Why don't you <a href="/#!/articles/create">Create One</a>?</h1>
+    
+  </div>
+</section>
