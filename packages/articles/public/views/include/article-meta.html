@@ -1,0 +1,20 @@
+<i style="position: absolute; top: 10px; right: -20px; font-size: 18px; z-index: 99" class="fa fa-gear" ng-click="showPostMeta = !showPostMeta"></i>
+
+<div ng-show="showPostMeta" style="padding: 5px; clear: both;">
+
+  <div class="pull-left">
+  	<h5>Tags</h5>
+	<span data-ng-repeat="tag in article.tags">
+		<i class="muted fa fa-tag"></i>&nbsp;<a> {{ tag }} </a>&nbsp;
+	</span>
+	<div ng-model="article.tags" bootstrap-tagsinput="a" typeahead-source="a, b, c, d, e" options="tagInputOptions" ></div>
+  </div>
+  
+  <div class="pull-left" style="margin-left: 10px">
+  	<h5>Categories</h5>
+	<span data-ng-repeat="(key, category) in categories">
+		<input type="checkbox" ng-model="article.categories[key]" /> &nbsp; {{category}} &nbsp;
+	</span>
+  </div>
+	
+</div>

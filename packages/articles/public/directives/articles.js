@@ -14,8 +14,8 @@ function bindHtmlDirective($timeout){
       return function(scope, iElement, iAttrs, ngModel){
           $timeout(function(){
               postLink(scope, iElement, iAttrs, ngModel);
-          }, 100)
-      }
+          }, 100);
+      };
     }
   };
 

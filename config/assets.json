@@ -13,7 +13,11 @@
         "bower_components/angular-ui-router/release/angular-ui-router.min.js",
         "bower_components/angular-bootstrap/ui-bootstrap-tpls.js",
         "bower_components/web-bootstrap/index.js",
-        "bower_components/bootstrap/dist/js/bootstrap.js"
+        "bower_components/bootstrap/dist/js/bootstrap.js",
+        "bower_components/codemirror/lib/codemirror.js",
+        "bower_components/codemirror/addon/mode/overlay.js",
+        "bower_components/codemirror/mode/markdown/markdown.js",
+        "bower_components/codemirror/mode/gfm/gfm.js"
       ]
     }
   }

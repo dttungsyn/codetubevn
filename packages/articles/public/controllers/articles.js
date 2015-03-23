@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('mean.articles', []).controller('ArticlesController', ['$scope', '$stateParams', '$location', 'Global', 'Articles', '$window',
+angular.module('mean.articles', ['ui-codemirror-markdown']).controller('ArticlesController', ['$scope', '$stateParams', '$location', 'Global', 'Articles', '$window',
   function($scope, $stateParams, $location, Global, Articles, $window) {
     $scope.global = Global;
     $scope.hasAuthorization = function(article) {
@@ -28,7 +28,7 @@ angular.module('mean.articles', []).controller('ArticlesController', ['$scope', 
       typeahead: false
     };
     
-    $scope.showPostMeta = true; //TODO get from local storage
+    $scope.showPostMeta = false; //TODO get from local storage
 
     $scope.create = function(isValid) {
       if (isValid) {
@@ -52,7 +52,7 @@ angular.module('mean.articles', []).controller('ArticlesController', ['$scope', 
         article.$remove(function(response) {
           for (var i in $scope.articles) {
             if ($scope.articles[i] === article) {
-	      $scope.articles.splice(i,1);
+	           $scope.articles.splice(i,1);
             }
           }
           $location.path('articles');
@@ -69,7 +69,7 @@ angular.module('mean.articles', []).controller('ArticlesController', ['$scope', 
         var article = $scope.article;
         if(!article.updated) {
           article.updated = [];
-	}
+	      }
         article.updated.push(new Date().getTime());
 
         article.$update(function() {

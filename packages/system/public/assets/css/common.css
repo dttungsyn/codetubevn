@@ -509,13 +509,13 @@ height: 7px;
 }
 
 .navbar-inverse .navbar-brand{
-    color: rgba(216, 255, 200, 0.9);
+    color: rgba(179, 212, 255, 0.85);
     font-style: italic;
     font-weight: bold;
     font-size: large;
 }
 .navbar-inverse .navbar-brand:hover{
-    color: rgba(216, 255, 200, 1);
+    color: rgba(179, 212, 255, 1);
 }
 .navbar-inverse .navbar-brand:hover i.fa{
     font-size: 19px;

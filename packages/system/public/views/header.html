@@ -59,7 +59,7 @@
                 <i class="fa fa-android"></i>&nbsp; {{ name }}
             </a>
           </li>
-          <li data-ng-repeat="item in menus.main" ui-route="/{{item.link}}" ng-class="{active: $uiRoute}">
+          <li data-ng-repeat="item in menus.main" ui-route="/{{item.link}}" ng-class="{active: StateName===item.link}">
             <a mean-token="item.link" ui-sref='{{item.link}}'>{{item.title}}</a>
           </li>
       </ul>
