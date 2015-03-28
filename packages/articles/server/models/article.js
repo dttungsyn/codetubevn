@@ -28,7 +28,11 @@ var ArticleSchema = new Schema({
   user: {
     type: Schema.ObjectId,
     ref: 'User'
-  }
+  },
+  // added
+  categories: [Boolean],
+  tags: [String],
+  comments: [{}]
 });
 
 /**
@@ -52,3 +56,14 @@ ArticleSchema.statics.load = function(id, cb) {
 };
 
 mongoose.model('Article', ArticleSchema);
+
+/*
+ * 2015-03-12 Category model
+ */
+
+var CategorySchema = new Schema({
+    id: Number,
+    name: String
+});
+
+mongoose.model('Category', CategorySchema);

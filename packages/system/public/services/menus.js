@@ -7,4 +7,20 @@ angular.module('mean.system').factory('Menus', ['$resource',
       defaultMenu: '@defaultMenu'
     });
   }
+])
+// 2015/3/28
+.factory('Helpers', ['$http',
+  function($http) {
+    return {
+      name: 'Helpers',
+      
+      getCategories: function( cb ){
+    	  $http.get('/categories').success(function( categories ){
+    		  if ( typeof(cb) === 'function' ){
+    			  cb ( categories );
+    		  }
+    	  });
+      }
+    };
+  }
 ]);

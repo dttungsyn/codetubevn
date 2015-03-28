@@ -53,14 +53,11 @@
       <ul class="nav navbar-nav">
         <!--<li class="active"><a href="#">Home</a></li>-->
         
-          <li role="presentation" ng-class="{'active': state==='firstPage'}"><a href="#!/articles">Home</a></li>
+          <li role="presentation" ng-class="{'active': stateName==='all articles'}"><a href="#!/articles">Home</a></li>
           <li role="presentation" data-ng-repeat="(id, name) in categories" ng-class="{'active': catId===id}">
             <a href="#!/articles/category/{{id}}">
                 <i class="fa fa-android"></i>&nbsp; {{ name }}
             </a>
-          </li>
-          <li data-ng-repeat="item in menus.main" ui-route="/{{item.link}}" ng-class="{active: StateName===item.link}">
-            <a mean-token="item.link" ui-sref='{{item.link}}'>{{item.title}}</a>
           </li>
       </ul>
       

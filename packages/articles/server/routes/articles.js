@@ -22,4 +22,15 @@ module.exports = function(Articles, app, auth) {
 
   // Finish with setting up the articleId param
   app.param('articleId', articles.article);
+
+  //2015-03-12 get categories
+  app.route('/articles/category/:catId')
+    .get(articles.showCategory);
+  
+  app.param('catId', function(req, res, next, id) {
+    req.catId = id;
+    next();
+  });
+  
+  app.route('/categories').get(articles.categories);
 };

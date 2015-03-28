@@ -1,7 +1,7 @@
 'use strict';
 
-angular.module('mean.system').controller('HeaderController', ['$scope', '$rootScope', 'Global', 'Menus',
-  function($scope, $rootScope, Global, Menus) {
+angular.module('mean.system').controller('HeaderController', ['$scope', '$rootScope', 'Global', 'Menus', 'Helpers',
+  function($scope, $rootScope, Global, Menus, Helpers) {
     $scope.global = Global;
     $scope.menus = {};
 
@@ -35,5 +35,23 @@ angular.module('mean.system').controller('HeaderController', ['$scope', '$rootSc
         user: $rootScope.user
       };
     });
+
+    //2015-03-12 get categories
+    $scope.categories = {};
+    Helpers.getCategories( function( categories ){
+      for (var i in categories){
+        var category = categories[i];
+        $scope.categories[ category.id ] = category.name;
+      }
+      
+      Global.categories = $scope.categories;
+    });
+
+    $rootScope.$on('$stateChangeStart', function(event, toState, toParams, fromState, fromParams){
+      $scope.catId = toParams.catId;
+      $scope.stateName = toState.name;
+      console.log(toState);
+    });
+    
   }
 ]);

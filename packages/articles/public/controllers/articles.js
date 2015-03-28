@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('mean.articles', ['ui-codemirror-markdown']).controller('ArticlesController', ['$scope', '$stateParams', '$location', 'Global', 'Articles', '$window',
+angular.module('mean.articles', ['ui-codemirror-markdown', 'bootstrap-tagsinput']).controller('ArticlesController', ['$scope', '$stateParams', '$location', 'Global', 'Articles', '$window',
   function($scope, $stateParams, $location, Global, Articles, $window) {
     $scope.global = Global;
     $scope.hasAuthorization = function(article) {
@@ -20,14 +20,15 @@ angular.module('mean.articles', ['ui-codemirror-markdown']).controller('Articles
         toolbarContainer: '.btn-toolbar'
     };
     
-    //Get categories from global which load & set in theme controller
-    //$scope.categories = Global.categories;
+    //Get categories from global which load & set in system header controller
+    $scope.categories = Global.categories;
     
-    
+    // tag input (create & edit)
     $scope.tagInputOptions = {
       typeahead: false
     };
     
+    // (create & edit)
     $scope.showPostMeta = false; //TODO get from local storage
 
     $scope.create = function(isValid) {

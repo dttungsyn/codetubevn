@@ -5,6 +5,7 @@
  */
 var mongoose = require('mongoose'),
   Article = mongoose.model('Article'),
+  Category = mongoose.model('Category'),//2015-03-12
   _ = require('lodash');
 
 
@@ -91,7 +92,52 @@ exports.all = function(req, res) {
         error: 'Cannot list the articles'
       });
     }
+
+    //split --more--
+    articles.map(function(article, ind){
+      article.content = article.content.split('<!--more-->')[0];
+    });
+
     res.json(articles);
 
+  });
+};
+
+/**
+ * 2015-03-12 Get all categories
+ */
+exports.categories = function(req, res){
+  Category.find().sort('id').exec(function(err, categories){
+    if (err) {
+        return res.json(500, {
+          error: 'Cannot find categories '
+        });
+      }
+    
+    res.json( categories );
+  });
+};
+
+/*
+ * List Articles by categoryId
+ */
+exports.showCategory = function(req, res) {
+  var catId = req.catId;
+  var cond = {};
+  cond[ 'categories.' + catId ] = true;
+  Article.find( cond ).sort('-created').populate('user', 'name username').exec(function(err, articles) {
+      if (err) {
+        return res.json(500, {
+          error: 'Cannot list the articles category ' + catId
+        });
+      }
+      
+      //split --more--
+      articles.map(function(article, ind){
+        article.content = article.content.split('<!--more-->')[0];
+      });
+      
+      res.json(articles);
+  
   });
 };

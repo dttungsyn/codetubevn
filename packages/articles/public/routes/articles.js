@@ -52,6 +52,10 @@ angular.module('mean.articles').config(['$stateProvider',
         resolve: {
           loggedin: checkLoggedin
         }
+      })
+      .state('category articles', {
+        url: '/articles/category/:catId',
+        templateUrl: 'articles/views/list.html'
       });
   }
 ]);
